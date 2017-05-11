@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Vue Sharing 18</title>
+    <link rel="stylesheet" href="./18.css">
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <button @click="shuffle">Shuffle</button>
+      <button @click="add">Add</button>
+      <button @click="remove">Remove</button>
+      <transition-group name="list" tag="p"><span class="list-item" v-for="item in items" :key="item">{{ item }}</span></transition-group>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/lodash.shuffle.js"></script>
+    <script src="./18.js"></script>
+  </body>
+</html>

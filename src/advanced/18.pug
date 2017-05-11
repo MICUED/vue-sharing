@@ -1,0 +1,17 @@
+doctype html
+html(lang="zh-cmn-Hans-CN")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no")
+    title Vue Sharing 18
+    link(rel="stylesheet", href="./18.css")
+  body
+    #app(v-cloak)
+      button(@click="shuffle") Shuffle
+      button(@click="add") Add
+      button(@click="remove") Remove
+      transition-group(name="list", tag="p")
+        span.list-item(v-for="item in items", :key="item") {{ item }}
+    script(src="../lib/vue.js")
+    script(src="../lib/lodash.shuffle.js")
+    script(src="./18.js")

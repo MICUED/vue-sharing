@@ -1,0 +1,21 @@
+doctype html
+html(lang="zh-cmn-Hans-CN")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no")
+    title Vue Sharing 16
+  body
+    #app
+    script#a-temp(type="text/template")
+      div A
+    script#b-temp(type="text/template")
+      button B
+    script#app-temp(type="text/template")
+      #app
+        button(@click="which = !which") 切换
+        br
+        comp-a(v-if="which")
+        comp-b(v-else)
+        //component(:is="comp")
+    script(src="../lib/vue.js")
+    script(src="./16.js")

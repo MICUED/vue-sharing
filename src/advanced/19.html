@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Vue Sharing 18</title>
+    <link rel="stylesheet" href="./18.css">
+  </head>
+  <body>
+    <div id="app" v-cloak>总延时：
+      <input v-model="totalDelay"><br>间隙：
+      <input v-model="intervalDelay"><br>请输入：
+      <input v-model="text">
+      <p>进行中： {{ animated }}</p>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script src="./randomText.js"></script>
+    <script src="./19.js"></script>
+  </body>
+</html>

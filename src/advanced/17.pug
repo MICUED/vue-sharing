@@ -1,0 +1,23 @@
+doctype html
+html(lang="zh-cmn-Hans-CN")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no")
+    title Vue Sharing 17
+    link(rel="stylesheet", href="./17.css")
+  body
+    #app
+    script#a-temp(type="text/template")
+      div A
+    script#b-temp(type="text/template")
+      button B
+    script#app-temp(type="text/template")
+      #app(v-cloak)
+        button(@click="which = !which") 切换
+        br
+        transition(appear, name="fade", mode="out-in")
+          //comp-a(v-if="which")
+          //comp-b(v-else)
+          component(:is="comp")
+    script(src="../lib/vue.js")
+    script(src="./17.js")

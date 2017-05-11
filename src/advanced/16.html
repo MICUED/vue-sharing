@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Vue Sharing 16</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script id="a-temp" type="text/template">
+      <div>A</div>
+    </script>
+    <script id="b-temp" type="text/template">
+      <button>B</button>
+    </script>
+    <script id="app-temp" type="text/template">
+      <div id="app">
+        <button @click="which = !which">切换</button><br>
+        <comp-a v-if="which"></comp-a>
+        <comp-b v-else></comp-b>
+        <!--component(:is="comp")-->
+      </div>
+    </script>
+    <script src="../lib/vue.js"></script>
+    <script src="./16.js"></script>
+  </body>
+</html>
