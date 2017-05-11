@@ -1,0 +1,1 @@
+{"version":3,"sources":["13.es6"],"names":["Vue","template","el","data","msg"],"mappings":";;AAAA,IAAIA,GAAJ,CAAQ;AACNC,+CADM;AAINC,MAAI,MAJE;AAKNC,QAAM;AACJC,SAAK;AADD;AALA,CAAR","file":"13.js","sourcesContent":["new Vue({\n  template: `<div id=\"app\">\n{{ msg }}\n</div>`,\n  el: '#app',\n  data: {\n    msg: 'Hello ES next'\n  }\n})\n"]}
