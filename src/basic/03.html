@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Sharing 03</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/html" id="app-temp">
+  <div>
+    <input type="text" v-model="msg">
+    <button @click="reverse">反转</button>
+    <br>
+    {{ msg }}
+  </div>
+</script>
+<script src="../lib/vue.js"></script>
+<script>
+  var reverse = function (str) {
+    return str.split('').reverse().join('')
+  }
+
+  var vm = new Vue({
+    template: '#app-temp',
+    data: {
+      msg: 'Hello Vue'
+    },
+    methods: {
+      reverse: function () {
+        console.log(vm === this)
+        this.msg = reverse(this.msg)
+      }
+    }
+  })
+
+  setTimeout(function () {
+    vm.msg = vm.msg.toUpperCase()
+    vm.$mount('#app')
+  }, 2000)
+</script>
+</body>
+</html>

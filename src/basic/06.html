@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Sharing 06</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/html" id="app-temp">
+  <div>
+    <list :items="items"/>
+    上面是一个自定义组件
+  </div>
+</script>
+<script type="text/html" id="list-temp">
+  <ul>
+    <li v-for="item of items" v-if="item % 2 === 0">{{ item }}</li>
+  </ul>
+</script>
+<script src="../lib/vue.js"></script>
+<script>
+  var List = {
+    props: ['items'],
+    template: '#list-temp'
+  }
+
+  new Vue({
+    template: '#app-temp',
+    el: '#app',
+    data: {
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    },
+    components: {
+      List: List
+    }
+  })
+</script>
+</body>
+</html>

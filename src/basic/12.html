@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Sharing 12</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/html" id="app-temp">
+  <div>
+    <heading title="测试"/>
+    {{ msg | reverse }}
+  </div>
+</script>
+<script src="../lib/vue.js"></script>
+<script>
+  var reverse = function (str) {
+    return str.split('').reverse().join('')
+  }
+
+  var MyMixin = {
+    beforeCreate: function () {
+      console.log('MyMixin')
+    }
+  }
+
+  Vue.component('heading', {
+    template: '<h1>{{ title }}</h1>',
+    props: ['title']
+  })
+
+  new Vue({
+    template: '#app-temp',
+    el: '#app',
+    mixins: [MyMixin],
+    data: {
+      msg: 'Hello Vue'
+    },
+    beforeCreate: function () {
+      console.log('beforeCreate')
+    },
+    filters: {
+      reverse: reverse
+    }
+  })
+</script>
+</body>
+</html>

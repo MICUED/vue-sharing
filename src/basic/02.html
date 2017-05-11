@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Sharing 02</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div id="app" v-cloak>
+  <input type="text" v-model="msg">
+  <button @click="reverse">反转</button>
+  <br>
+  {{ msg }}
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  var reverse = function (str) {
+    return str.split('').reverse().join('')
+  }
+
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      msg: 'Hello Vue'
+    },
+    methods: {
+      reverse: function () {
+        console.log(vm === this)
+        this.msg = reverse(this.msg)
+      }
+    }
+  })
+</script>
+</body>
+</html>

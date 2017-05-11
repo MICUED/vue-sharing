@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Sharing 10</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/html" id="app-temp">
+  <div>
+    question: <input type="text" v-model="question">
+    <br>
+    <p>answer: {{ answer }}</p>
+  </div>
+</script>
+<script src="../lib/vue.js"></script>
+<script>
+  var CHARS = '0123456789abcdefghijklmnopqrstuvwxyz'.split('')
+  var LEN = CHARS.length
+
+  var randomChar = function () {
+    return CHARS[~~(Math.random() * LEN)]
+  }
+
+  var randomParagraph = function () {
+    return Array.from({length: ~~(Math.random() * 200)}).map(function () {
+      return randomChar()
+    }).join('')
+  }
+
+  var DEFAULT_ANSWER = 'ask me...'
+
+  new Vue({
+    template: '#app-temp',
+    el: '#app',
+    data: {
+      question: '',
+      answer: DEFAULT_ANSWER
+    },
+    watch: {
+      question: function () {
+        this.answer = 'Waiting...'
+        this.getAnswer()
+      }
+    },
+    methods: {
+      getAnswer: (function () {
+        var timeout
+        return function () {
+          clearTimeout(timeout)
+          if (!this.question) return this.answer = DEFAULT_ANSWER
+          var self = this
+          timeout = setTimeout(function () {
+            self.answer = 'Searching'
+            setTimeout(function () {
+              self.answer = randomParagraph()
+            }, 500)
+          }, 500)
+        }
+      })()
+    }
+  })
+</script>
+</body>
+</html>

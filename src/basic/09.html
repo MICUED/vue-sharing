@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Sharing 09</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/html" id="app-temp">
+  <div>
+    First Name: <input type="text" v-model="firstName">
+    <br>
+    Last Name: <input type="text" v-model="lastName">
+    <br>
+    Full Name: <input type="text" v-model="fullName">
+  </div>
+</script>
+<script src="../lib/vue.js"></script>
+<script>
+  new Vue({
+    template: '#app-temp',
+    el: '#app',
+    data: {
+      firstName: '',
+      lastName: ''
+    },
+    computed: {
+      fullName: {
+        get: function () {
+          return this.firstName + ' ' + this.lastName
+        },
+        set: function (fullName) {
+          var words = fullName.trim().split(/ +/)
+          this.firstName = words.slice(0, -1).join(' ')
+          this.lastName = words[words.length - 1]
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Sharing 11</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/html" id="app-temp">
+  <div id="app">
+    {{ msg }}
+  </div>
+</script>
+<script src="../lib/vue.js"></script>
+<script>
+  var vm = new Vue({
+    template: '#app-temp',
+    beforeCreate: function () {
+      this.$options.data = {
+        msg: 'beforeCreate'
+      }
+      console.log('beforeCreate')
+    },
+    created: function () {
+      console.log(this.msg = 'created')
+    },
+    beforeMount: function () {
+      console.log(this.msg = 'beforeMount')
+    },
+    mounted: function () {
+      console.log(this.msg = 'mounted1')
+      console.log(this.msg = 'mounted2')
+    },
+    beforeUpdate: function () {
+      console.log('beforeUpdate')
+      var self = this
+      this.$nextTick(function () {
+        self.msg = 'beforeUpdate'
+      })
+    },
+    updated: function () {
+      console.log('updated')
+    }
+  })
+
+  setTimeout(function () {
+    vm.$mount('#app')
+  }, 500)
+</script>
+</body>
+</html>
