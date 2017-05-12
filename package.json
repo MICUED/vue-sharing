@@ -7,12 +7,21 @@
   "author": "JounQin<admin@1stg.me>",
   "license": "MIT",
   "scripts": {
-    "es6": "eslint src/**/*.es6"
+    "es6": "eslint src/**/*.es6",
+    "basic": "webpack --config build/basic/webpack.config.js --watch",
+    "basic:babel": "webpack --config build/basic/webpack.config.babel.js --watch",
+    "basic:tree": "webpack --config build/basic/webpack.config.tree.babel.js --watch",
+    "basic:tree:p": "webpack --config build/basic/webpack.config.tree.babel.js --watch -p"
+  },
+  "dependencies": {
+    "babel-register": "^6.24.1",
+    "vue": "^2.3.3"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-helper-vue-jsx-merge-props": "^2.0.2",
+    "babel-loader": "^7.0.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.4.3",
     "babel-preset-env": "^1.4.0",
@@ -20,6 +29,7 @@
     "eslint": "^3.19.0",
     "eslint-config-prettier": "^2.0.0",
     "eslint-plugin-prettier": "^2.0.1",
-    "prettier": "^1.3.1"
+    "prettier": "^1.3.1",
+    "webpack": "^2.5.1"
   }
 }
