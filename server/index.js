@@ -31,4 +31,4 @@ if (isProduction) {
 const args = [3000, 'localhost']
 
 export default app.listen(...args, err =>
-  debug.apply(null, err ? [err] : ['Server is now running at %s:%s.', ...args.reverse()]))
+  debug(...err ? [err] : ['Server is now running at %s:%s.', ...args.reverse()]))
