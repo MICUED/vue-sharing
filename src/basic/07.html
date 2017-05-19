@@ -8,22 +8,32 @@
 <div id="app"></div>
 <script type="text/html" id="app-temp">
   <div>
-    <list :items="oddItems"/>
-    <list :items="evenItems"/>
+    <list :items="oddItems" @childEvent="childEventHandler"/>
+    <list :items="evenItems" @childEvent="childEventHandler"/>
     上面是一个自定义组件
-    <button @click="reverse">反转</button>
+    <button @click="reverse($event)">反转</button>
   </div>
 </script>
 <script type="text/html" id="list-temp">
   <ul>
-    <li v-for="item of items">{{ item }}</li>
+    <li v-for="item of items" @click="clickHandler">{{ item }}</li>
   </ul>
 </script>
 <script src="../lib/vue.js"></script>
 <script>
   var List = {
-    props: ['items'],
-    template: '#list-temp'
+    props: {
+      items: {
+        type: Array
+      }
+    },
+    template: '#list-temp',
+    methods: {
+      clickHandler(e) {
+        console.log('click')
+        this.$emit('childEvent', e)
+      }
+    }
   }
 
   new Vue({
@@ -47,6 +57,9 @@
     methods: {
       reverse: function () {
         this.items.reverse()
+      },
+      childEventHandler: function (e) {
+        console.log(e)
       }
     },
     components: {
