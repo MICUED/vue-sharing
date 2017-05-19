@@ -16,6 +16,8 @@ const randomText = (function () {
   let intervalId
 
   return function (text, onUpdate, totalDelay = 500, intervalDelay = 10, random) {
+    if(text == null) return
+
     clearInterval(intervalId)
 
     text = text + ''

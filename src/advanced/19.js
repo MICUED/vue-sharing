@@ -10,7 +10,7 @@ new Vue({
   },
   // watch: {
   //   text(text) {
-  //     randomText(text, text => this.animated = text, this.totalDelay)
+  //     randomText(text, text => this.animated = text, this.totalDelay, this.intervalDelay)
   //   }
   // },
   mounted: function mounted() {
@@ -39,7 +39,7 @@ new Vue({
 
       randomText(this.text, function (text) {
         return _this2.animated = text;
-      }, this.totalDelay);
+      }, this.totalDelay, this.intervalDelay);
     })
   }
 });

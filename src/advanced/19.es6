@@ -8,7 +8,7 @@ new Vue({
   },
   // watch: {
   //   text(text) {
-  //     randomText(text, text => this.animated = text, this.totalDelay)
+  //     randomText(text, text => this.animated = text, this.totalDelay, this.intervalDelay)
   //   }
   // },
   mounted() {
@@ -16,7 +16,7 @@ new Vue({
   },
   methods: {
     randomText() {
-      randomText(this.text, text => this.animated = text, this.totalDelay)
+      randomText(this.text, text => this.animated = text, this.totalDelay, this.intervalDelay)
     }
   }
 })

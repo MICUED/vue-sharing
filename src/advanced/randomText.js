@@ -22,6 +22,8 @@ var randomText = function () {
     var intervalDelay = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 10;
     var random = arguments[4];
 
+    if (text == null) return;
+
     clearInterval(intervalId);
 
     text = text + '';
