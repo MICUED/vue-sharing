@@ -33,9 +33,6 @@
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -63,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,21 +68,31 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export a */
-/* unused harmony export b */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return c; });
-var a = function a() {
-  console.log('a');
-};
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tree_shaking__ = __webpack_require__(2);
 
-var b = function b() {
-  console.log('b');
-};
 
-var c = function c() {
-  b();
-  console.log('c');
-};
+// import './tree-shaking'
+
+
+__WEBPACK_IMPORTED_MODULE_1__tree_shaking__["a" /* c */]()
+
+new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+  el: '#app',
+  data: {
+    msg: 'Hello Webpack'
+  },
+  render(h) {
+    return h('div', {
+      attrs: {
+        id: 'app'
+      }
+    }, this.msg)
+  }
+})
+
 
 /***/ }),
 /* 1 */
@@ -98,30 +105,25 @@ module.exports = Vue;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tree_shaking__ = __webpack_require__(0);
+const a = () => {
+  console.log('a')
+}
+/* unused harmony export a */
 
 
-// import './tree-shaking'
+const b = () => {
+  console.log('b')
+}
+/* unused harmony export b */
 
 
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tree_shaking__["a" /* c */])();
+const c = () => {
+  b()
+  console.log('c')
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = c;
 
-new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  el: '#app',
-  data: {
-    msg: 'Hello Webpack'
-  },
-  render: function render(h) {
-    return h('div', {
-      attrs: {
-        id: 'app'
-      }
-    }, this.msg);
-  }
-});
+
 
 /***/ })
 /******/ ]);

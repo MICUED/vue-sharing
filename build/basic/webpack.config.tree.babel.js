@@ -5,11 +5,5 @@ export default {
   output: {
     ...babelConfig.output,
     filename: 'output.tree.js'
-  },
-  module: {
-    rules: [{
-      test: /\.js$/,
-      use: 'babel-loader'
-    }]
   }
 }

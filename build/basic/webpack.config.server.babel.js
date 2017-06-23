@@ -12,15 +12,15 @@ export default {
     path: src,
     filename: 'output.server.js'
   },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
-  },
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.js$/,
+  //       use: 'babel-loader',
+  //       exclude: /node_modules/
+  //     }
+  //   ]
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       templateContent: pug.renderFile(path.resolve(src, 'template.pug')),
